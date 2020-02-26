@@ -1,32 +1,14 @@
 import React, { Component, Fragment } from "react";
-import PropTypes from "prop-types";
 import { render } from "react-dom";
+import Button from "./Button";
 
-class Button extends Component {
-  static defaultProps = {
-    children: "Salvar"
-  };
-  static PropTypes = {
-    onClick: PropTypes.func.isRequired,
-    children: PropTypes.string
-  };
-  render() {
-    return (
-      <button href="" onClick={this.props.onClick}>
-        {this.props.children}
-      </button>
-    );
-  }
-}
+import "./style.scss";
 class App extends Component {
   state = {
     counter: 0
   };
-  handleClick = () => {
-    this.setState(state => ({
-      counter: state.counter + 1
-    }));
 
+  handleClick = () => {
     this.setState(state => ({
       counter: state.counter + 1
     }));
@@ -36,7 +18,7 @@ class App extends Component {
     return (
       <Fragment>
         <h1>Hello</h1>
-        <h2>{this.state.counter}</h2>
+        <h2 style={{ color: "#f00" }}>{this.state.counter}</h2>
         <Button onClick={this.handleClick}>Somar</Button>
       </Fragment>
     );
